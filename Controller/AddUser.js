@@ -6,7 +6,7 @@ const addUser = async (email,password) => {
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(password, salt);
         const newUser = new User({
-            uid : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+            uid : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15).toString(),
             email: email,
             password: hash
         });

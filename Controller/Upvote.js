@@ -11,3 +11,5 @@ const upvote = async (qid) => {
         return "Internal Server Error";
     }
 }
+
+module.exports = upvote;

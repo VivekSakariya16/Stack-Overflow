@@ -11,3 +11,5 @@ const addComment = async (qid, comment) => {
         return  "Internal Server Error" ;
     }
 }
+
+module.exports = addComment;

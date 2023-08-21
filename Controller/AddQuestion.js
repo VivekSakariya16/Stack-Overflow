@@ -4,7 +4,7 @@ const User = require('../Model/User');
 const addQuestion = async (description, userId) => {
     try {
         const newQuestion = new Question({
-            qid: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+            qid: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15).toString(),
             description: description,
             upvote: 0,
             downvote: 0,

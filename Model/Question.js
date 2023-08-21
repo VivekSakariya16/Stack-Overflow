@@ -11,15 +11,28 @@ const Question = new Schema({
         required: true
     },
     upvote: {
-        type: int,
+        type: Number,
     },
     downvote: {
-        type: int
+        type: Number
     },
     comments:[
-            {
+        {
+            commentId: {
                 type: String,
-            }
+                required: true
+            },
+            data: {
+                type: String,
+            },
+            upvote: {
+                type: Number,
+            },
+            downvote: {
+                type: Number
+            },
+        }
+
     ],
     userId: {
         type: String,
