@@ -21,12 +21,6 @@ const Question = new Schema({
                 type: String,
             }
     ]
-    ,
-    tags:[
-        {
-            type: String,
-        }
-    ]
 });
 
 module.exports = mongoose.model('question', Question);
