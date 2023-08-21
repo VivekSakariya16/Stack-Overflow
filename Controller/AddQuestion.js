@@ -1,19 +1,22 @@
 const Question = require('../Model/Question');
+const User = require('../Model/User');
 
-const addQuestion = async (description) => {
+const addQuestion = async (description, userId) => {
     try {
         const newQuestion = new Question({
             qid: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
             description: description,
             upvote: 0,
             downvote: 0,
-            comments: []
+            comments: [],
+            userId: userId
         });
         await newQuestion.save();
-        res.status(200).json({ message: "Question added successfully" });
+        const updateUser = User.updateOne({ userId: userId }, { $push: { questions: newQuestion.qid } });
+        return  "Question added successfully";
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Internal Server Error" });
+        return "Internal Server Error";
     }
 }
 

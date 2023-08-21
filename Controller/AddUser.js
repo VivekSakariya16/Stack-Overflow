@@ -6,14 +6,15 @@ const addUser = async (email,password) => {
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(password, salt);
         const newUser = new User({
+            uid : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
             email: email,
             password: hash
         });
         await newUser.save();
-        res.status(200).json({ message: "User added successfully" });
+        return "User added successfully";
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Internal Server Error" });
+        return "Internal Server Error";
     }
 }
 

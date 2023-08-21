@@ -5,7 +5,7 @@ const deleteQuestion = async (qid) => {
         Question.deleteOne({ qid: qid });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Internal Server Error" });
+        return "Internal Server Error";
     }
 }
 

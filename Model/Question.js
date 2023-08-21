@@ -20,7 +20,11 @@ const Question = new Schema({
             {
                 type: String,
             }
-    ]
+    ],
+    userId: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = mongoose.model('question', Question);
